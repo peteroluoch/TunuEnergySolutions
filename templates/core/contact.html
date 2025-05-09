@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Contact Us</h1>
+        <p class="lead">Get in touch with our team to learn more about our clean energy solutions</p>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">
+                        <h2 class="mb-4">Send Us a Message</h2>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <select class="form-select" id="subject">
+                                        <option selected>Select a subject</option>
+                                        <option value="product">Product Inquiry</option>
+                                        <option value="partnership">Partnership Opportunity</option>
+                                        <option value="investment">Investment Information</option>
+                                        <option value="carbon">Carbon Credits</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Your Message</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Information -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
+                        <h3 class="card-title h4">Our Location</h3>
+                        <p class="card-text">
+                            123 Energy Way<br>
+                            Green City, EC 12345<br>
+                            Country
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-phone fa-3x text-primary mb-3"></i>
+                        <h3 class="card-title h4">Phone</h3>
+                        <p class="card-text">
+                            Main: (123) 456-7890<br>
+                            Support: (123) 456-7891<br>
+                            Toll-free: 1-800-HYDRO-POWER
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-envelope fa-3x text-primary mb-3"></i>
+                        <h3 class="card-title h4">Email</h3>
+                        <p class="card-text">
+                            General: info@tunucleanenergy.com<br>
+                            Support: support@tunucleanenergy.com<br>
+                            Sales: sales@tunucleanenergy.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Find Us</h2>
+        <div class="ratio ratio-21x9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3059353029!2d-74.25986548248684!3d40.69714941932609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1620293521046!5m2!1sen!2s" allowfullscreen="" loading="lazy" class="border-0 shadow-sm rounded"></iframe>
+        </div>
+    </div>
+</section>
+{% endblock %}

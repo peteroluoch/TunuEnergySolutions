@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">About Tunu Clean Energy</h1>
+        <p class="lead">Pioneering portable hydro power technology for a sustainable future</p>
+    </div>
+</section>
+
+<!-- About Content -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="mb-4">Our Story</h2>
+                <p>Tunu Clean Energy was founded with a vision to revolutionize how the world generates and consumes clean energy. Our team of engineers and environmental scientists came together to develop a solution that addresses the growing need for sustainable power sources that are accessible to all.</p>
+                
+                <p>After years of research and development, we created our innovative portable hydro power units that can scale from kilowatts to megawatts, making clean energy accessible to individuals, communities, and industries alike.</p>
+                
+                <h2 class="mb-4 mt-5">Our Mission</h2>
+                <p>Our mission is to provide clean, renewable hydro energy solutions that are portable, scalable, and require minimal water resources. We aim to democratize access to clean energy while contributing to global carbon reduction efforts.</p>
+                
+                <h2 class="mb-4 mt-5">Our Technology</h2>
+                <p>At the heart of our innovation is a proprietary chipset technology that enables efficient energy generation from even minimal water flow. Our units are designed to be:</p>
+                
+                <ul class="list-group list-group-flush mb-4">
+                    <li class="list-group-item"><strong>Portable:</strong> Easily transported and installed in various locations</li>
+                    <li class="list-group-item"><strong>Scalable:</strong> Available in different sizes to meet various energy needs</li>
+                    <li class="list-group-item"><strong>Efficient:</strong> Generating maximum power from minimal water resources</li>
+                    <li class="list-group-item"><strong>Sustainable:</strong> Producing clean energy with minimal environmental impact</li>
+                    <li class="list-group-item"><strong>Durable:</strong> Built to withstand various environmental conditions</li>
+                </ul>
+                
+                <h2 class="mb-4 mt-5">Our Team</h2>
+                <div class="row g-4 mt-3">
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Team Member">
+                            <div class="card-body">
+                                <h5 class="card-title">Jane Doe</h5>
+                                <p class="card-text text-muted">Founder & CEO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Team Member">
+                            <div class="card-body">
+                                <h5 class="card-title">John Smith</h5>
+                                <p class="card-text text-muted">Chief Technology Officer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Team Member">
+                            <div class="card-body">
+                                <h5 class="card-title">Emily Johnson</h5>
+                                <p class="card-text text-muted">Head of Sustainability</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-light">
+    <div class="container text-center">
+        <h2>Join Us in Creating a Sustainable Future</h2>
+        <p class="lead">Learn how our hydro power solutions can benefit you or your community</p>
+        <div class="mt-4">
+            <a href="{% url 'products:product_list' %}" class="btn btn-primary me-2">Explore Products</a>
+            <a href="{% url 'core:contact' %}" class="btn btn-outline-primary">Contact Us</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
