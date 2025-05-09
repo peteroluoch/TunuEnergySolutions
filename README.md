@@ -1,4 +1,4 @@
-# Tunu Clean Energy Platform
+# TunuEnergySolutions# Tunu Clean Energy Platform
 
 A Django-based web platform for Tunu Clean Energy, a company producing portable hydro energy solutions using innovative chipset technology.
 
