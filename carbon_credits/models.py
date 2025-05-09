@@ -1,6 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class CarbonCreditProject(models.Model):
+    """
+    Model for carbon credit projects.
+    """
+    project_name = models.CharField(max_length=200)
+    location = models.CharField(max_length=200)
+    energy_generated_mwh = models.FloatField(help_text="Energy generated in megawatt-hours")
+    co2_offset_tons = models.FloatField(help_text="CO₂ offset in metric tons")
+    registered_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.project_name
+
 class CarbonCredit(models.Model):
     """
     Model for carbon credits.
@@ -8,8 +21,7 @@ class CarbonCredit(models.Model):
     credit_id = models.CharField(max_length=50, unique=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2, help_text="Amount in tons of CO2 equivalent")
     price_per_ton = models.DecimalField(max_digits=10, decimal_places=2)
-    project_name = models.CharField(max_length=200)
-    project_description = models.TextField()
+    project = models.ForeignKey(CarbonCreditProject, on_delete=models.CASCADE, related_name='credits')
     verification_standard = models.CharField(max_length=100, help_text="e.g., Gold Standard, VCS")
     verification_date = models.DateField()
     expiration_date = models.DateField(null=True, blank=True)

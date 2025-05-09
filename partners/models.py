@@ -13,17 +13,15 @@ class Partner(models.Model):
         ('other', 'Other'),
     )
 
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=150)
+    contact_person = models.CharField(max_length=100)
     email = models.EmailField()
     phone = models.CharField(max_length=20, blank=True)
-    organization = models.CharField(max_length=200)
+    region = models.CharField(max_length=100)
+    is_verified = models.BooleanField(default=False)
+    joined_on = models.DateTimeField(auto_now_add=True)
+    partner_type = models.CharField(max_length=20, choices=PARTNER_TYPES, default='other')
     website = models.URLField(blank=True)
-    partner_type = models.CharField(max_length=20, choices=PARTNER_TYPES)
-    country = models.CharField(max_length=100)
-    message = models.TextField(blank=True)
-    is_approved = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = _('Partner')
@@ -31,4 +29,4 @@ class Partner(models.Model):
         ordering = ['name']
 
     def __str__(self):
-        return f"{self.name} ({self.get_partner_type_display()})"
+        return self.name

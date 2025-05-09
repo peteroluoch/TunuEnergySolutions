@@ -27,6 +27,20 @@ class InvestmentOpportunity(models.Model):
     def get_absolute_url(self):
         return reverse('investors:investment_detail', args=[self.slug])
 
+class Investor(models.Model):
+    """
+    Model for investors.
+    """
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    organization = models.CharField(max_length=150, blank=True)
+    invested_amount = models.DecimalField(max_digits=12, decimal_places=2)
+    message = models.TextField(blank=True)
+    date_joined = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.full_name} ({self.email})"
+
 class InvestorInquiry(models.Model):
     """
     Model for investor inquiries.
