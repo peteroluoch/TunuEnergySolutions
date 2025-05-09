@@ -1,15 +1,210 @@
 {% extends 'base.html' %}
 
+{% block extra_css %}
+<style>
+    /* Hero Section Styles */
+    .hero-section {
+        position: relative;
+        padding: 12rem 0 8rem;
+        overflow: hidden;
+    }
+
+    .hero-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .hero-section .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .text-gradient {
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .hero-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-feature {
+        display: flex;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        backdrop-filter: blur(5px);
+    }
+
+    .hero-feature i {
+        margin-right: 0.5rem;
+    }
+
+    .hero-trust {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.9rem;
+    }
+
+    .hero-rating {
+        color: #FFD700;
+    }
+
+    .hero-image-container {
+        position: relative;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-image {
+        transform: scale(1.05);
+        transition: transform 0.5s ease;
+    }
+
+    .hero-image-container:hover .hero-image {
+        transform: scale(1);
+    }
+
+    .hero-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: rotate(5deg);
+    }
+
+    .hero-badge-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .hero-badge-text {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .pulse-btn {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pulse-btn:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0, 0);
+            opacity: 0.5;
+        }
+        100% {
+            transform: scale(20, 20);
+            opacity: 0;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .hero-section {
+            text-align: center;
+            padding: 10rem 0 6rem;
+        }
+
+        .hero-features {
+            justify-content: center;
+        }
+
+        .cta-group {
+            justify-content: center;
+        }
+
+        .hero-trust {
+            justify-content: center;
+        }
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <!-- Hero Section -->
-<section class="hero-section text-center">
+<section class="hero-section">
+    <div class="hero-particles" id="particles-js"></div>
     <div class="container">
-        <div data-aos="fade-up" data-aos-delay="100">
-            <h1 class="display-3 fw-bold mb-4">Powering a Sustainable Future</h1>
-            <p class="lead mb-4 fs-4">Revolutionary portable hydro energy solutions that scale from kilowatts to megawatts</p>
-            <div class="mt-5">
-                <a href="{% url 'products:product_list' %}" class="btn btn-primary btn-lg me-3">Explore Solutions</a>
-                <a href="{% url 'core:contact' %}" class="btn btn-outline-light btn-lg">Contact Us</a>
+        <div class="row align-items-center">
+            <div class="col-lg-7" data-aos="fade-right">
+                <h1 class="display-3 fw-bold mb-3">Transform Your <span class="text-gradient">Water</span> Into <span class="text-gradient">Clean Energy</span></h1>
+                <p class="lead mb-4 fs-4">Revolutionary hydro units that generate power from minimal water flow, reducing costs and carbon footprint</p>
+
+                <div class="hero-features mb-4">
+                    <div class="hero-feature">
+                        <i class="fas fa-bolt text-warning"></i>
+                        <span>95% Lower Carbon Emissions</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-tint text-primary"></i>
+                        <span>Works with Minimal Water Flow</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-dollar-sign text-success"></i>
+                        <span>60% Cost Savings vs. Grid</span>
+                    </div>
+                </div>
+
+                <div class="cta-group">
+                    <a href="{% url 'products:product_list' %}" class="btn btn-primary btn-lg me-3 pulse-btn">Find Your Solution</a>
+                    <a href="{% url 'core:contact' %}" class="btn btn-outline-light btn-lg">Get a Free Quote</a>
+                </div>
+
+                <div class="hero-trust mt-4">
+                    <p class="mb-2"><i class="fas fa-shield-alt me-2"></i> Trusted by businesses in 30+ countries</p>
+                    <div class="d-flex align-items-center">
+                        <div class="hero-rating me-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>4.9/5 from 200+ customers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block" data-aos="fade-left">
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Tunu Hydro Power Unit" class="img-fluid rounded-lg hero-image">
+                    <div class="hero-badge">
+                        <div class="hero-badge-content">
+                            <div class="hero-badge-title">NEW</div>
+                            <div class="hero-badge-text">Micro-Hydro Technology</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -440,7 +635,118 @@
 {% endblock %}
 
 {% block extra_js %}
+<!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
+    // Initialize particles.js
+    document.addEventListener('DOMContentLoaded', function() {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#5BBA6F"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#08A4BD",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.5
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    });
+
     // Counter animation
     document.addEventListener('DOMContentLoaded', function() {
         const counters = document.querySelectorAll('.counter-number');
